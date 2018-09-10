@@ -20,7 +20,7 @@ extern int w;
 extern int max;
 extern bool flag1;
 
-void agefile(string filename)
+void agefile(string filename)//打开文件统计字符函数
 {
 	char c;
 	ifstream s(filename);
@@ -29,23 +29,29 @@ void agefile(string filename)
 		cout << "error" << endl;
 		flag1 = false;
 	}
-	while (s.get(c))
+	while (s.get(c))//采用get函数读取字符
 	{
 		b[j++] = c;
 	}
-//	cout << "characters:" << j << endl;
-	d << "characters:" << j << endl;
+	if (flag1 == true)
+	{
+		d << "characters:" << j << endl; //输出字符数
+	}
+	else
+	{
+		d << "error" << endl;
+	}
 }
-void count_all(string buf, bool notempty = false)
+void count_all(string buf, bool notempty = false)//统计单词数以及行数函数
 {
 
 	int i;
 	for (i = 0; i < j; i++)
 	{
-		if (b[i] != ' '&&b[i] != '\n')
+		if (b[i] != ' '&&b[i] != '\n')//遇到一个单词就存起来
 		{
 			buf.insert(buf.end(), b[i]);
-			//		buf += b[i];
+
 		}
 		else
 		{
@@ -71,7 +77,7 @@ void count_all(string buf, bool notempty = false)
 	{
 		for (int k3 = 0; k3 < buf.size(); k3++)
 		{
-			if (buf[k3] > 32)
+			if (buf[k3] > 32)//判断全空格的情况
 				notempty = true;
 		}
 		if (notempty == true)
@@ -92,14 +98,14 @@ void count_all(string buf, bool notempty = false)
 		{
 			flag = false;
 		}
-		if (str[i].size() > 4 && flag == true)
+		if (str[i].size() > 3 && flag == true)//剔除4个字母以下
 		{
 			str_shorted.push_back(str[i]);
 		}
 	}
 	for (i = 0; i < str_shorted.size(); i++)
 	{
-		if (strmap.find(str_shorted[i]) == strmap.end())
+		if (strmap.find(str_shorted[i]) == strmap.end())//采用map函数寻找单词
 		{
 			strmap[str_shorted[i]] = 1;
 		}
@@ -108,17 +114,16 @@ void count_all(string buf, bool notempty = false)
 			strmap[str_shorted[i]]++;
 		}
 	}
-//	cout << "lines:" << count_ << endl;
-//	cout<< "words:" << str_shorted.size() << endl;
-	d << "lines:" << count_ << endl;
+
+	d << "lines:" << count_ << endl;//输出
 	d << "words:" << str_shorted.size() << endl;
 }
 
-void addword(bool flag = true,int max=-999)
+void addword(bool flag = true,int max=-999)//统计单词数词频最多的10个单词以及输出单词
 {
 	bool flag2 = false;
 	q = strmap.begin();
-	for (int s1 = 0; s1 < 10; s1++)
+	for (int s1 = 0; s1 < 10; s1++)//采用遍历10次的的方式，如果不足十次bool值置false跳出循环
 	{
 		flag2 = false;
 		if (flag == false)
@@ -127,7 +132,7 @@ void addword(bool flag = true,int max=-999)
 		}
 		flag = true;
 		max = -999;
-		while (q != strmap.end())
+		while (q != strmap.end())//采用map函数进行存取遍历
 		{
 			if (q->second > max)
 			{
@@ -144,7 +149,7 @@ void addword(bool flag = true,int max=-999)
 		}
 		q = strmap.begin();
 		strmap[a] = -10;
-		for (int j1 = 0; j1 < str_shorted.size(); j1++)
+		for (int j1 = 0; j1 < str_shorted.size(); j1++)//判断
 		{
 			if (strmap[str_shorted[j1]] == -10)
 			{
