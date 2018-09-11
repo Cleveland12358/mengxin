@@ -105,7 +105,7 @@ void count_all(string buf, bool notempty = false)//统计单词数以及行数函数
 	}
 	for (i = 0; i < str_shorted.size(); i++)
 	{
-		if (strmap.find(str_shorted[i]) == strmap.end())//采用map函数寻找单词
+		if (strmap.find(str_shorted[i]) == strmap.end())
 		{
 			strmap[str_shorted[i]] = 1;
 		}
