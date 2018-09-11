@@ -1,9 +1,0 @@
-﻿  pch.cpp
-  ConsoleApplication1.cpp
-d:\git\031602136\src\consoleapplication1\hello.h(61): warning C4018: “<”: 有符号/无符号不匹配
-d:\git\031602136\src\consoleapplication1\hello.h(78): warning C4018: “<”: 有符号/无符号不匹配
-d:\git\031602136\src\consoleapplication1\hello.h(88): warning C4018: “<”: 有符号/无符号不匹配
-d:\git\031602136\src\consoleapplication1\hello.h(92): warning C4018: “<”: 有符号/无符号不匹配
-d:\git\031602136\src\consoleapplication1\hello.h(106): warning C4018: “<”: 有符号/无符号不匹配
-d:\git\031602136\src\consoleapplication1\hello.h(152): warning C4018: “<”: 有符号/无符号不匹配
-  ConsoleApplication1.vcxproj -> D:\git\031602136\src\Debug\ConsoleApplication1.exe
